@@ -1,0 +1,6 @@
+#CREATING A USERNAME
+print("please enter your details to create a username for you :) ")
+real_name=input("enter your real name here")
+nick_name=input("enter your nick name here")
+combining_the_names=real_name+"_"+nick_name
+print("your user name is ready : " + combining_the_names )

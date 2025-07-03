@@ -1,0 +1,12 @@
+n=int(input("enter any digit number"))
+count=0
+count2=0
+for digit in str(abs(n)):
+    if int (digit)% 2 !=0:
+        count+=1
+        print (" odd digit in the number", digit)
+    else :
+        count2+=1
+        print (" even digit in the number", digit)
+print(count2,"there are the number of even digits in the given number ")        
+print(count,"there are the number of odd digits in the given number ")

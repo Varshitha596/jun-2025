@@ -1,0 +1,8 @@
+def funcyion(n):
+    empty=''
+    for i in range(len(n) -1,-1,-1):
+        empty+= n[i]
+    return empty
+n=input("enter the string here")
+result=function(n)
+print(result)

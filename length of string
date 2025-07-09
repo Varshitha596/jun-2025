@@ -1,0 +1,4 @@
+string=input("enter a string")
+length=len(string)
+final=length-1
+print(final)

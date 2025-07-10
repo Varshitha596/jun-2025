@@ -1,0 +1,5 @@
+word=input("enter any word")
+length_of_the_word=len(word)
+last_word=length_of_the_word-1
+last_letter=word[last_word]
+print(last_letter)

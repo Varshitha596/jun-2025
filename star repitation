@@ -1,0 +1,6 @@
+word=input("enter the word")
+first_word=word[0]
+second_word=word[-1]
+length=len(word)-2
+star="*"*length
+print(first_word+star+second_word)

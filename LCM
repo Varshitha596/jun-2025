@@ -1,0 +1,10 @@
+a=int(input("enter the  1st value"))
+b=int(input("enter the 2nd value"))
+t1,t2=a,b
+while b>0:
+    r=a%b
+    a=b
+    b=r
+gcd=a
+lcm=int((t1*t2)/a)
+print("gcd:",lcm) 

@@ -1,0 +1,23 @@
+def get(intp):
+    c=[]
+    end=len(intp)-1
+    for i in range(end):
+        ci=intp[i]+intp[i+1]
+        c.append(ci)
+    return c 
+        
+def print_sum_triangle(intp):
+    while len(intp)>1:
+        c=get(intp)
+        print(c)
+        intp=c
+def convert(s):
+    new=[]
+    for i in s:
+        n=int(i)
+        new.append(n)
+    return new    
+s=input().split(",")
+intp=(convert(s))
+print(intp)
+print_sum_triangle(intp)

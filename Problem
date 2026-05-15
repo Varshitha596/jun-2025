@@ -1,0 +1,111 @@
+###Undirected Graph Cycle
+'''class Solution:
+	def isCycle(self, V, edges):
+		#Code here
+		adj=[[]for i in range(V)]
+		for u,v in edges:
+		    adj[u].append(v)
+		    adj[v].append(u)
+		visited=[False]*V
+		def bfs(start):
+		    q=[]
+		    q.append((start,-1))
+		    visited[start]=True
+		    while q:
+		        node,par=q.pop(0)
+		        for nei in adj[node]:
+		            if not visited[nei]:
+		                visited[nei]=True
+		                q.append((nei,node))
+		            elif nei!=par:
+		                return True
+		    return False
+		for i in range(V):
+		     if not visited[i]:
+		         if bfs(i):
+		             return True
+		return False'''
+	
+##BIPARTITE GRAPH 
+'''class Solution:
+    def isBipartite(self, V, edges):
+        adj=[[] for i in range(V)]
+        for u,v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
+        color=[-1]*V
+        for i in range(V):
+            if color[i] ==-1:
+               if not self.dfs(i,0,adj,color):
+                    return False
+        return True
+    def dfs(self,node,col,adj,color):
+        color[node]=col
+
+        for neighbour in adj[node]:
+            if color[neighbour]== -1:
+                if not self.dfs(neighbour,1-col,adj,color):
+                    return False
+            elif color[neighbour] == col:
+                return False
+        return True'''
+##DAG
+'''class Solution:
+  def topoSort(self,V,edges):
+    adj=[[]for _ in range(V)]
+    for u,v in edges:
+      adj[u].append(v)
+    visited =[False]*V
+    stack=[]
+    def dfs(node):
+      visited[node]=True
+      for nei in adj[node]:
+        if not visited[nei]:
+          dfs(nei)
+      stack.append(node)
+    for i in range(V):
+      if not visited[i]:
+        dfs(i)
+    return stack[::-1]'''
+###ANOTHER METHOD
+'''class Solution:
+  def topoSort(self,V,edges):
+    adj=[[]for _ in range(V)]
+    indeg=[0]*V
+    for u,v in edges:
+      adj[u].append(v)
+      indeg[v]+=1
+    q=[]
+    for i in range(V):
+      if indeg[i]==0:
+        q.append(i)
+    res=[]
+    while q:
+      node=q.pop(0)
+      res.append(node)
+      for nei in adj[node]:
+        indeg[nei]-=1
+        if indeg[nei]==0:
+          q.append(nei)
+    return res'''
+###Directed Graph Cycle
+'''class Solution:
+  def isCyclic(self,V,edges):
+    adj=[[]for i in range(V)]
+    indeg=[0]*V
+    for u,v in edges: 
+      adj[u].append(v)
+      indeg[v]+=1
+    q=deque([])
+    for i in range(V):
+      if indeg[i]==0:
+        q.append(i)
+    c=0
+    while q:
+      node=q.popleft()
+      c+=1
+      for nei in adj[node]:
+        indeg[nei]-=1
+        if indeg[nei]==0:
+          q.append(nei)
+    return c!=V'''
